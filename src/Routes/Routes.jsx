@@ -9,6 +9,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import DashBoard from "../Layout/DashBoard/DashBoard";
 
 import CreateBioData from "../Pages/DashBoard/CreateBioData/CreateBioData";
+import ViewBioData from "../Pages/DashBoard/ViewBioData/ViewBioData";
+import AllUsers from "../Layout/DashBoard/Allusers/Allusers";
 
   export const router = createBrowserRouter([
     {
@@ -37,6 +39,16 @@ import CreateBioData from "../Pages/DashBoard/CreateBioData/CreateBioData";
           path:'editBioData',
           element:<CreateBioData></CreateBioData>
 
+        },
+        {
+          path:'viewBioData',
+          element:<ViewBioData></ViewBioData>
+
+        },
+        // admin routes
+        {
+          path:'users',
+          element:<AllUsers></AllUsers>
         }
       ]
     }

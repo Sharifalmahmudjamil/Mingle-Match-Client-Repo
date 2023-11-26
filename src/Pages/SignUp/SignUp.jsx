@@ -2,11 +2,14 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 
 const SignUp = () => {
     const { register, handleSubmit,  reset,formState: { errors } } = useForm();
     const {createUser, updateUserProfile}=useAuth();
+    const axiosPublic=useAxiosPublic();
     const navigate= useNavigate();
 
     const onSubmit = data => {
@@ -18,15 +21,35 @@ const SignUp = () => {
             updateUserProfile(data.name, data.photoURL)
             .then(()=>{
                 console.log('user profile info update');
-                reset();
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "User Created SuccessFully",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-                  navigate('/')
+                // create user entry in the db
+                const userInfo = {
+                    name: data.name,
+                    email: data.email
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            console.log('user added in db');
+                            reset();
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User created successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
+                // reset();
+                // Swal.fire({
+                //     position: "top-end",
+                //     icon: "success",
+                //     title: "User Created SuccessFully",
+                //     showConfirmButton: false,
+                //     timer: 1500
+                //   });
+                //   navigate('/')
             })
             .catch(error=> console.log(error))
         })
@@ -87,9 +110,14 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className="text-center mb-8 p-5">Already have an Account? <Link className="text-fuchsia-500 font-bold" to="/login">Please Login</Link></p>
-                        
+                        <div className="mb-5">
+                        <SocialLogin ></SocialLogin>
+                        </div>
                     </div>
+                  
                 </div>
+               
+                
             </div>
         </>
     );

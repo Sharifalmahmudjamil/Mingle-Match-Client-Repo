@@ -9,7 +9,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const CreateBioData = () => {
     const axiosPublic=useAxiosPublic();
     const {user}=useAuth();
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit,reset } = useForm()
     const onSubmit = async (data) =>{ 
         console.log(data);
           // image upload to imgbb and then get an url
@@ -34,13 +34,13 @@ const CreateBioData = () => {
                 PresentDivision:data.PresentDivision,
                 email:data.email,
                 height:data.height,
-                image:res.data.display_url,
+                image:res.data.data.display_url,
                 number:data.number,
                 occupation:data.occupation,
                 partnerAge:data.partnerAge,
                 partnerHeight:data.partnerHeight,
                 partnerWeight:data.partnerWeight,
-                userEmail:user.email
+                userEmail:user?.email
 
             }
             
@@ -55,6 +55,7 @@ const CreateBioData = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  reset();
             }
           }
           console.log(res.data);
@@ -284,9 +285,11 @@ const CreateBioData = () => {
                     </div>
                         <div className="form-control w-1/2 my-6">
                         <label className="label">
-                            <span className="label-text">Contact Email </span>
+                            <span className="label-text">Contact Email</span>
                         </label>
                         <input
+                        readOnly
+                          defaultValue={user?.email}
                             type="email"
                             placeholder=" Contact Email"
                             {...register('email', { required: true })}

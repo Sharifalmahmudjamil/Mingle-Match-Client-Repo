@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge,LoadCanvasTemplate,  validateCaptcha } from "react-simple-captcha";
 import useAuth from "../../Hooks/useAuth";
-import { FaGoogle } from 'react-icons/fa';
+// import { FaGoogle } from 'react-icons/fa';
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -91,10 +92,8 @@ const Login = () => {
                         <div className=" gap-2 mt-4 ">
                     
                    
-                
-                    <button  className="btn  btn-accent w-1/2 ml-24">
-                    <FaGoogle ></FaGoogle>
-                      Log in with Google</button>
+                        <SocialLogin></SocialLogin>
+                   
                     
                     
                     
