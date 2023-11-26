@@ -7,9 +7,10 @@ const ViewBioData = () => {
     console.log(bioData);
     const allData=bioData.filter(data=>data.userEmail== user?.email)
     return (
-        <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
            {
-            allData.map(data=><div key={data._id} className="card w-96 bg-gray-400 shadow-xl ml-8  border-2 border-pink-400">
+            allData.map(data=>
+            <div key={data._id} className="card w-96 bg-gray-400 shadow-xl ml-8  border-2 border-pink-400">
               <h1 className="text-2xl text-center font-medium text-pink-500 mt-2"> BioData Information</h1>
             <figure className="px-10 pt-10">
               <img src={data.image} alt="Shoes" className="rounded-3xl" />

@@ -2,11 +2,12 @@ import {  FaEdit, FaHome, FaStreetView, FaUser } from "react-icons/fa";
 import { BiSolidContact } from "react-icons/bi";
 import { MdFolderSpecial, MdOutlineWorkspacePremium,  } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../../Hooks/useAdmin";
 
 
 
 const DashBoard = () => {
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className="flex">
             {/* dashboard sidebar */}
