@@ -62,7 +62,7 @@ const DashBoard = () => {
                    
                     </li>
                 <li>
-                    <NavLink to='/dashboard/contact'>
+                    <NavLink to='/dashboard/favourites'>
                     <MdFolderSpecial></MdFolderSpecial>
                     Favourites BioData</NavLink>
                    

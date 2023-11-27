@@ -12,6 +12,10 @@ import CreateBioData from "../Pages/DashBoard/CreateBioData/CreateBioData";
 import ViewBioData from "../Pages/DashBoard/ViewBioData/ViewBioData";
 import AllUsers from "../Layout/DashBoard/Allusers/Allusers";
 import AdminRoute from "./PrivateRoute/AdminRoute";
+import Biodatas from "../Pages/BioDatas/Biodatas";
+import BioDetails from "../Pages/BioDetails/BioDetails";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import FavouritesBioData from "../Pages/FavouritesBioData/FavouritesBioData";
 
   export const router = createBrowserRouter([
     {
@@ -22,6 +26,16 @@ import AdminRoute from "./PrivateRoute/AdminRoute";
             path: '/',
             element:<Home></Home>
         },
+        {
+            path: 'bioDatas',
+            element:<Biodatas></Biodatas>
+        },
+        {
+            path: 'bioDetails/:id',
+            element:<PrivateRoute><BioDetails></BioDetails></PrivateRoute>,
+           loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+        },
+       
         {
             path: 'login',
             element:<Login></Login>
@@ -44,6 +58,11 @@ import AdminRoute from "./PrivateRoute/AdminRoute";
         {
           path:'viewBioData',
           element:<ViewBioData></ViewBioData>
+
+        },
+        {
+          path:'favourites',
+          element:<FavouritesBioData></FavouritesBioData>
 
         },
         // admin routes

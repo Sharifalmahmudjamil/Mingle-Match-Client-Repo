@@ -16,9 +16,9 @@ const Navbar = () => {
             <li className="lg:text-black "><NavLink to="/"
                 className={({ isActive }) => isActive ? 'btn bg-pink-500 btn-sm' : ' btn  btn-sm '}
             >Home</NavLink></li>
-            <li className="lg:text-black "><NavLink to="/"
-                className={({ isActive }) => isActive ? 'btn bg-pink-500 btn-sm' : ' btn btn-ghost btn-sm'}
-            > BioData</NavLink></li>
+            <li className="lg:text-black "><NavLink to="/bioDatas"
+                className={({ isActive }) => isActive ? 'btn btn-outline  btn-sm' : ' btn bg-pink-500 btn-sm'}
+            > BioDatas</NavLink></li>
             <li className="lg:text-black "><NavLink to="/"
                 className={({ isActive }) => isActive ? 'btn bg-pink-500 btn-sm' : ' btn btn-ghost btn-sm'}
             >About US</NavLink></li>
