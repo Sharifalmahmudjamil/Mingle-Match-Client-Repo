@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAuth from "../../Hooks/useAuth";
 
 
 
@@ -14,12 +15,13 @@ const FavouritesBioData = () => {
     
     
     const axiosPublic = useAxiosPublic();
+    const {user}=useAuth();
    
    
     const { data: favourites = [],refetch } = useQuery({
-        queryKey: ['favourites'],
+        queryKey: ['favourites',user?.email],
         queryFn: async () => {
-            const res = await axiosPublic.get('/favourites');
+            const res = await axiosPublic.get(`/favourites?email=${user?.email}`);
             console.log(res.data);
             return res.data;
             

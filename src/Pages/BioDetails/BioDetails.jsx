@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
@@ -7,40 +7,45 @@ import useAuth from "../../Hooks/useAuth";
 
 
 
+
 const BioDetails = () => {
     const axiosPublic=useAxiosPublic();
     const {user}=useAuth();
+    
 
   const allData=useLoaderData();
 
   
-    const Name = allData?.name
-    const fatherName = allData?.FatherName
-    const MotherName=allData?.motherName
-    const race=allData?.Race
-    const Category=allData?.category
-    const weight=allData?.Weight
-    const height=allData?.height
-    const age=allData?.age
-    const division=allData?.division
-    const PresentDivision=allData?.PresentDivision
-    const occupation=allData?.occupation
-    const partnerAge=allData?.partnerAge
-    const partnerHeight=allData?.partnerHeight
-    const partnerWeight=allData?.partnerWeight
-    const contactEmail=allData?.email
-    const number=allData?.number
-    const image=allData?.image
-    const date=allData?.data
-    const userEmail=user?.email
+
+    const handleSubmit =()=>{
+
+      if(user && user.email){
+        const Name = allData?.name
+        const fatherName = allData?.FatherName
+        const MotherName=allData?.motherName
+        const race=allData?.Race
+        const Category=allData?.category
+        const weight=allData?.Weight
+        const height=allData?.height
+        const age=allData?.age
+        const division=allData?.division
+        const PresentDivision=allData?.PresentDivision
+        const occupation=allData?.occupation
+        const partnerAge=allData?.partnerAge
+        const partnerHeight=allData?.partnerHeight
+        const partnerWeight=allData?.partnerWeight
+        const contactEmail=allData?.email
+        const number=allData?.number
+        const image=allData?.image
+        const date=allData?.data
+        const email=user?.email
+       
     
+        const info={Name,fatherName,MotherName,race,Category,weight,height,age,division,PresentDivision,occupation,partnerAge,partnerHeight,partnerWeight,contactEmail,number,image,date,email}
     
 
-    const info={Name,fatherName,MotherName,race,Category,weight,height,age,division,PresentDivision,occupation,partnerAge,partnerHeight,partnerWeight,contactEmail,number,image,date,userEmail}
 
-
-  const handleSubmit =()=>{
-      console.log(allData);
+      // console.log(allData);
     axiosPublic.post('/favourite',info)
     .then(res=>{
        console.log(res.data);
@@ -59,6 +64,15 @@ const BioDetails = () => {
     
    
   }
+    
+  }
+  
+   
+    
+
+    
+
+ 
     return (
         <div>
             <Navbar></Navbar>
@@ -97,8 +111,12 @@ const BioDetails = () => {
               <p className="text-lg font-medium">Partner Weight: {allData.partnerWeight}</p>
               <p className="text-lg font-medium">Contact Email: {allData.email}</p>
               <p className="text-lg font-medium">Number: {allData.number}</p>
-              <div className="card-actions">
-                <button onClick={handleSubmit}  className="btn btn-outline">Add To Favourites</button>
+              <div className="card-actions flex">
+                <button onClick={handleSubmit}  className="btn btn-outline btn-sm">Add To Favourites</button>
+
+                <Link to={`/checkOut/${allData._id}`} >
+                <button className="btn btn-outline btn-sm">Request Contact Information</button>
+                </Link>
               </div>
             </div>
           </div> 

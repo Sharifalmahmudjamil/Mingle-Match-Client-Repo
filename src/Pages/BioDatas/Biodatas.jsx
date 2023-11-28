@@ -12,10 +12,12 @@ import { Link } from "react-router-dom";
 
 
 
+
+
 const Biodatas = () => {
-    // const {user}=useAuth();
+    
     const [bioData]=useBioData();
-    console.log(bioData);
+    
     
     // eslint-disable-next-line no-unused-vars
     const [bioDatas, setBioDatas] = useState(bioData);
@@ -37,9 +39,10 @@ const Biodatas = () => {
         // Filter based on selected gender
         return item.category === selectedGender;
       });
-    
-    
-  
+      console.log(filteredBioData);
+     
+
+      
     return (
         <div>
           <Navbar></Navbar>
@@ -90,6 +93,8 @@ const Biodatas = () => {
               <p className="text-lg font-medium">Age: {data.age}</p>
               <div className="card-actions">
                 <Link to={`/bioDetails/${data._id}`}><button className="btn btn-outline">View Profile</button></Link>
+
+               
               </div>
             </div>
           </div> )

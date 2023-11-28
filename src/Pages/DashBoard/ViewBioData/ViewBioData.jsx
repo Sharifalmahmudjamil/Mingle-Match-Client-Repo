@@ -1,11 +1,47 @@
 import useBioData from "../../../Hooks/useBioData";
 import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const ViewBioData = () => {
     const {user}=useAuth();
     const [bioData]=useBioData();
-    console.log(bioData);
+    const  axiosPublic=useAxiosPublic();
+    // console.log(bioData);
     const allData=bioData.filter(data=>data.userEmail== user?.email)
+
+    console.log(allData);
+
+    const handlePremium=()=>{
+        const name=allData.name
+        const email=allData.email
+          const PremiumInfo={name,email};
+          console.log(PremiumInfo);
+        
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+              axiosPublic.post('/premium',PremiumInfo)
+              .then(res=>{
+                console.log(res.data);
+              })
+            // Swal.fire({
+            //   title: "Deleted!",
+            //   text: "Your file has been deleted.",
+            //   icon: "success"
+            // });
+          }
+        });
+      }
+  
+
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2">
            {
@@ -42,7 +78,7 @@ const ViewBioData = () => {
               <p className="text-lg font-medium">Contact Email: {data.email}</p>
               <p className="text-lg font-medium">Number: {data.number}</p>
               <div className="card-actions">
-                <button className="btn btn-outline"> Premium</button>
+                <button onClick={handlePremium} className="btn btn-outline bg-rose-400"> Premium</button>
               </div>
             </div>
           </div> )

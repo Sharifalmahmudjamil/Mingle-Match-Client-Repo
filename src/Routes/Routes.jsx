@@ -16,6 +16,9 @@ import Biodatas from "../Pages/BioDatas/Biodatas";
 import BioDetails from "../Pages/BioDetails/BioDetails";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import FavouritesBioData from "../Pages/FavouritesBioData/FavouritesBioData";
+import PremiumData from "../Pages/DashBoard/PremiumData/PremiumData";
+import CheckOut from "../Pages/CheackOut/CheckOut";
+import ContactRequest from "../Pages/DashBoard/ContactRequest/ContactRequest";
 
   export const router = createBrowserRouter([
     {
@@ -34,6 +37,12 @@ import FavouritesBioData from "../Pages/FavouritesBioData/FavouritesBioData";
             path: 'bioDetails/:id',
             element:<PrivateRoute><BioDetails></BioDetails></PrivateRoute>,
            loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+        },
+        {
+            path: 'checkOut/:id',
+            element:<CheckOut></CheckOut>,
+            loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+          
         },
        
         {
@@ -65,10 +74,19 @@ import FavouritesBioData from "../Pages/FavouritesBioData/FavouritesBioData";
           element:<FavouritesBioData></FavouritesBioData>
 
         },
+        {
+          path:'contact',
+          element:<ContactRequest></ContactRequest>
+
+        },
         // admin routes
         {
           path:'users',
           element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path:'premium',
+          element:<AdminRoute><PremiumData></PremiumData></AdminRoute>
         }
       ]
     }
