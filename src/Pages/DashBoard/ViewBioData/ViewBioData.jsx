@@ -12,6 +12,8 @@ const ViewBioData = () => {
 
     console.log(allData);
 
+    
+
     const handlePremium=()=>{
         const name=allData.name
         const email=allData.email

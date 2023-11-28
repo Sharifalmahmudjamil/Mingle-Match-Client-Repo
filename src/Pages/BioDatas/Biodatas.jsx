@@ -16,11 +16,11 @@ import { Link } from "react-router-dom";
 
 const Biodatas = () => {
     
-    const [bioData]=useBioData();
+    const [data]=useBioData();
     
     
     // eslint-disable-next-line no-unused-vars
-    const [bioDatas, setBioDatas] = useState(bioData);
+    const [bioDatas, setBioDatas] = useState(data);
     const [selectedGender, setSelectedGender] = useState('');
 
     

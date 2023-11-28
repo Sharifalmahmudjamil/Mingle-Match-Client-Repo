@@ -6,15 +6,15 @@ import useAxiosPublic from "./useAxiosPublic";
 const useBioData = () => {
     const axiosPublic=useAxiosPublic();
     // const { user} = useAuth();
-    const {  data: bioData = [] } = useQuery({
-        queryKey: ['bioData', ],
+    const {  data: data = [] } = useQuery({
+        queryKey: ['data', ],
         queryFn: async() => {
             const res = await axiosPublic.get(`/data`);
             return res.data;
         }
     })
 
-    return [bioData]
+    return [data]
 };
 
 export default useBioData;
