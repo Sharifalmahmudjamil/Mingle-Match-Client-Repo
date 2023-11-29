@@ -22,6 +22,7 @@ import ContactRequest from "../Pages/DashBoard/ContactRequest/ContactRequest";
 import GotMarried from "../Pages/DashBoard/GotMarried/GotMarried";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import SuccessStory from "../Pages/DashBoard/SuccessStory/SuccessStory";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
   export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ import SuccessStory from "../Pages/DashBoard/SuccessStory/SuccessStory";
         {
             path: 'bioDatas',
             element:<Biodatas></Biodatas>
+        },
+        {
+            path: 'about',
+            element:<AboutUs></AboutUs>
         },
         {
             path: 'bioDetails/:id',

@@ -1,6 +1,7 @@
 import {  FaEdit, FaHome, FaStreetView, FaUser } from "react-icons/fa";
 import { BiSolidContact } from "react-icons/bi";
 import { MdFolderSpecial, MdOutlineWorkspacePremium,  } from "react-icons/md";
+
 import { GiBigDiamondRing } from "react-icons/gi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { SiStorybook } from "react-icons/si";
@@ -8,12 +9,15 @@ import useAdmin from "../../Hooks/useAdmin";
 
 
 
+
 const DashBoard = () => {
+    
     const [isAdmin] = useAdmin();
     return (
         <div className="flex">
             {/* dashboard sidebar */}
             <div className="w-64 min-h-screen  bg-pink-500">
+                
             <ul className="menu p-4 my-10">
               {
                 isAdmin? <>
@@ -94,9 +98,11 @@ const DashBoard = () => {
                     </li>
             </ul>
             </div>
+           
             {/* dashboard content */}
             <div className="flex-1">
                 <Outlet></Outlet>
+              
             </div>
         </div>
     );

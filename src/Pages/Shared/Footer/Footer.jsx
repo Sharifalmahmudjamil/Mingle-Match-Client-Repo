@@ -12,7 +12,7 @@ const Footer = () => {
                 <nav>
                     <header className="footer-title">Services</header>
                     <Link to='/bioDatas'><a className="link link-hover hover:text-pink-500">BioDatas</a></Link>
-                    <Link to='/dashboard/admin'><a className="link link-hover hover:text-pink-500">DashBoard</a></Link>
+                    <Link to='/dashboard'><a className="link link-hover hover:text-pink-500">DashBoard</a></Link>
                     <a className="link link-hover">Marketing</a>
                     <a className="link link-hover">Advertisement</a>
                 </nav>
