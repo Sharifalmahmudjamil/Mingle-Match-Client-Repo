@@ -3,6 +3,7 @@ import { BiSolidContact } from "react-icons/bi";
 import { MdFolderSpecial, MdOutlineWorkspacePremium,  } from "react-icons/md";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { SiStorybook } from "react-icons/si";
 import useAdmin from "../../Hooks/useAdmin";
 
 
@@ -37,6 +38,12 @@ const DashBoard = () => {
                     <NavLink to='/dashboard/contact'>
                     <BiSolidContact></BiSolidContact>
                     Approved Contact Request</NavLink>
+                    
+                    </li>
+                <li>
+                    <NavLink to='/dashboard/story'>
+                    <SiStorybook></SiStorybook>
+                    Success Story</NavLink>
                     
                     </li>
                     <Link to='/login'>

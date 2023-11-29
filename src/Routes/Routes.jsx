@@ -20,6 +20,8 @@ import PremiumData from "../Pages/DashBoard/PremiumData/PremiumData";
 import CheckOut from "../Pages/CheackOut/CheckOut";
 import ContactRequest from "../Pages/DashBoard/ContactRequest/ContactRequest";
 import GotMarried from "../Pages/DashBoard/GotMarried/GotMarried";
+import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
+import SuccessStory from "../Pages/DashBoard/SuccessStory/SuccessStory";
 
   export const router = createBrowserRouter([
     {
@@ -93,6 +95,16 @@ import GotMarried from "../Pages/DashBoard/GotMarried/GotMarried";
         {
           path:'premium',
           element:<AdminRoute><PremiumData></PremiumData></AdminRoute>
+        },
+        {
+          path:'admin',
+          element:<AdminRoute><AdminHome></AdminHome></AdminRoute>,
+          
+        },
+        {
+          path:'story',
+          element:<AdminRoute><SuccessStory></SuccessStory></AdminRoute>,
+          loader:()=>fetch("http://localhost:5000/success")
         }
       ]
     }
