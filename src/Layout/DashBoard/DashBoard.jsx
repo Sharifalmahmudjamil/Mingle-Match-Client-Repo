@@ -1,6 +1,7 @@
 import {  FaEdit, FaHome, FaStreetView, FaUser } from "react-icons/fa";
 import { BiSolidContact } from "react-icons/bi";
 import { MdFolderSpecial, MdOutlineWorkspacePremium,  } from "react-icons/md";
+import { GiBigDiamondRing } from "react-icons/gi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../Hooks/useAdmin";
 
@@ -65,6 +66,12 @@ const DashBoard = () => {
                     <NavLink to='/dashboard/favourites'>
                     <MdFolderSpecial></MdFolderSpecial>
                     Favourites BioData</NavLink>
+                   
+                    </li>
+                <li>
+                    <NavLink to='/dashboard/married'>
+                    <GiBigDiamondRing></GiBigDiamondRing>
+                    Got Married</NavLink>
                    
                     </li>
                     <Link to='/login'>

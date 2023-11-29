@@ -19,6 +19,7 @@ import FavouritesBioData from "../Pages/FavouritesBioData/FavouritesBioData";
 import PremiumData from "../Pages/DashBoard/PremiumData/PremiumData";
 import CheckOut from "../Pages/CheackOut/CheckOut";
 import ContactRequest from "../Pages/DashBoard/ContactRequest/ContactRequest";
+import GotMarried from "../Pages/DashBoard/GotMarried/GotMarried";
 
   export const router = createBrowserRouter([
     {
@@ -77,6 +78,11 @@ import ContactRequest from "../Pages/DashBoard/ContactRequest/ContactRequest";
         {
           path:'contact',
           element:<ContactRequest></ContactRequest>
+
+        },
+        {
+          path:'married',
+          element:<GotMarried></GotMarried>
 
         },
         // admin routes
