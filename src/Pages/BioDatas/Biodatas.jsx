@@ -1,12 +1,12 @@
 // import useAuth from "../../Hooks/useAuth";
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useBioData from "../../Hooks/useBioData";
 import Navbar from "../Shared/Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-
+import './Biodatas.css'
 
 
 
@@ -15,14 +15,51 @@ import { Link } from "react-router-dom";
 
 
 const Biodatas = () => {
+  const [itemsPerPage,setItemsPerPage]=useState(6);
+  const [currentPage,setCurrentPage]= useState(0);
+  const {count}=useLoaderData();
+  console.log(count);
+  
+  const numberOfPages=Math.ceil(count/itemsPerPage);
+  const pages=[];
+  for(let i=0; i<numberOfPages;i++){
+    pages.push(i)
+  }
+  console.log(pages);
+
+  const handleItemsPerPage = e=>{
+    const value= parseInt(e.target.value)
+    console.log(value);
+    setItemsPerPage(value);
+    setCurrentPage(0);
     
+}
+
+const handlePrevPage = () =>{
+  if(currentPage>0){
+      setCurrentPage(currentPage-1)
+  }
+}
+const handleNextPage =() =>{
+  if(currentPage < pages.length -1){
+      setCurrentPage(currentPage+1);
+  }
+}
+
+
     const [data]=useBioData();
     
+   
     
     // eslint-disable-next-line no-unused-vars
     const [bioDatas, setBioDatas] = useState(data);
     const [selectedGender, setSelectedGender] = useState('');
 
+    useEffect(() => {
+      fetch(`http://localhost:5000/data?page=${currentPage}&size=${itemsPerPage}`)
+          .then(res => res.json())
+          .then(data => setBioDatas(data))
+    }, [currentPage,itemsPerPage]);
     
    
         // gender Change Filter
@@ -61,19 +98,6 @@ const Biodatas = () => {
       </label>
                     </div>
                   
-                    {/* <label className="ml-3">
-        Select Division:
-        <select className="ml-3"  >
-          <option value="">All</option>
-          <option value="dhaka">Dhaka</option>
-          <option value="chittagong">Chittagong</option>
-          <option value="rangpur">Rangpur</option>
-          <option value="barishal">Barishal</option>
-          <option value="khulna">Khulna</option>
-          <option value="maymansing">Maymansing</option> 
-          <option value="sylhet">Sylhet</option> 
-        </select>
-      </label> */}
       
                </div>
                {/* right side nav */}
@@ -104,6 +128,23 @@ const Biodatas = () => {
         </div>
 
                </div>
+          </div>
+          
+          <div className="pagination">
+          <button onClick={handlePrevPage} >prev</button>
+            {
+              pages.map(page=><button 
+                className={currentPage === page ? 'selected': undefined}
+                onClick={()=> setCurrentPage(page)}
+                 key={page} >{page}</button>)
+            }
+             <button onClick={handleNextPage} >next</button>
+            <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
           </div>
         </div>
     );

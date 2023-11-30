@@ -2,6 +2,7 @@ import useBioData from "../../../Hooks/useBioData";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 const ViewBioData = () => {
     const {user}=useAuth();
@@ -79,8 +80,12 @@ const ViewBioData = () => {
               <p className="text-lg font-medium">Partner Weight: {data.partnerWeight}</p>
               <p className="text-lg font-medium">Contact Email: {data.email}</p>
               <p className="text-lg font-medium">Number: {data.number}</p>
-              <div className="card-actions">
+              <div className="card-actions justify-between">
                 <button onClick={handlePremium} className="btn btn-outline bg-rose-400"> Premium</button>
+
+               <Link to={`/dashBoard/update/${data._id}`}>
+               <button className="btn btn-outline bg-rose-400">Edit BioData</button>
+               </Link>
               </div>
             </div>
           </div> )

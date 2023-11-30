@@ -23,6 +23,7 @@ import GotMarried from "../Pages/DashBoard/GotMarried/GotMarried";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import SuccessStory from "../Pages/DashBoard/SuccessStory/SuccessStory";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import EditBioData from "../Pages/EditBioData/EditBioData";
 
   export const router = createBrowserRouter([
     {
@@ -35,7 +36,8 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
         },
         {
             path: 'bioDatas',
-            element:<Biodatas></Biodatas>
+            element:<Biodatas></Biodatas>,
+            loader:()=>fetch('http://localhost:5000/totalDataCount')
         },
         {
             path: 'about',
@@ -74,7 +76,13 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
         },
         {
           path:'viewBioData',
-          element:<ViewBioData></ViewBioData>
+          element:<ViewBioData></ViewBioData>,
+
+        },
+        {
+          path:'update/:id',
+          element:<EditBioData></EditBioData>,
+          loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
 
         },
         {

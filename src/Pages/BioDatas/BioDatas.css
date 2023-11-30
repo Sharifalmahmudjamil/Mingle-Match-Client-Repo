@@ -1,0 +1,33 @@
+.pagination{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.pagination button{
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+}
+
+.pagination button {
+    background-color:  #808080; /* Green background */
+    color: white; /* White text color */
+    border: 2px solid #333333; /* Green border */
+    border-radius: 8px; /* Rounded corners */
+}
+/* Add hover effect */
+.pagination:hover {
+    background-color: white;
+    color: #FFC0CB;
+}
+
+.pagination .selected{
+    background-color: #FF007F;
+}
