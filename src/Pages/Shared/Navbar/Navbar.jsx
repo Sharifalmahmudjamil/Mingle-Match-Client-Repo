@@ -22,6 +22,9 @@ const Navbar = () => {
             <li className="lg:text-black "><NavLink to="/about"
                 className={({ isActive }) => isActive ? 'btn btn-outline btn-sm' : ' btn  bg-pink-500 btn-sm'}
             >About US</NavLink></li>
+            <li className="lg:text-black "><NavLink to="/contact"
+                className={({ isActive }) => isActive ? 'btn btn-outline btn-sm' : ' btn  bg-pink-500 btn-sm'}
+            >Contact US</NavLink></li>
             <li className="lg:text-black "><NavLink to="/dashboard"
                 className={({ isActive }) => isActive ? 'btn btn-outline btn-sm' : ' btn bg-pink-500 btn-sm'}
             >DashBoard</NavLink></li>

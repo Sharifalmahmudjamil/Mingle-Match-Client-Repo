@@ -15,31 +15,39 @@ const ViewBioData = () => {
 
     
 
-    const handlePremium=()=>{
-        const name=allData.name
-        const email=allData.email
-          const PremiumInfo={name,email};
+    const handlePremium=(id)=>{
+      console.log(id);
+      console.log(allData);
+        const name=allData[0].name
+        const email=allData[0].email
+        const category=allData[0].category
+        const image=allData[0].image
+        const division=allData[0].division
+        const age=allData[0].age
+        const occupation=allData[0].occupation
+        const status='false'
+          const PremiumInfo={name,email,category,image,division,age,occupation,status};
           console.log(PremiumInfo);
         
         Swal.fire({
           title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
+          text: "You want To Make Your BioData Premium!",
+          icon: "question",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
+          confirmButtonText: "Yes!"
         }).then((result) => {
           if (result.isConfirmed) {
               axiosPublic.post('/premium',PremiumInfo)
               .then(res=>{
                 console.log(res.data);
               })
-            // Swal.fire({
-            //   title: "Deleted!",
-            //   text: "Your file has been deleted.",
-            //   icon: "success"
-            // });
+            Swal.fire({
+              title: "Premium!",
+              text: "Your BioData has been premium.",
+              icon: "success"
+            });
           }
         });
       }
@@ -81,7 +89,7 @@ const ViewBioData = () => {
               <p className="text-lg font-medium">Contact Email: {data.email}</p>
               <p className="text-lg font-medium">Number: {data.number}</p>
               <div className="card-actions justify-between">
-                <button onClick={handlePremium} className="btn btn-outline bg-rose-400"> Premium</button>
+                <button onClick={()=>handlePremium(data._id)} className="btn btn-outline bg-rose-400"> Premium</button>
 
                <Link to={`/dashBoard/update/${data._id}`}>
                <button className="btn btn-outline bg-rose-400">Edit BioData</button>

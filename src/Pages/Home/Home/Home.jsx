@@ -1,4 +1,5 @@
 
+import PremiumCard from "../../PremiumCard/PremiumCard";
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
 import SuccessCounter from "../../SuccessCounter/SuccessCounter";
@@ -12,6 +13,7 @@ const Home = () => {
             
             <Navbar></Navbar>
             <Banner></Banner>
+            <PremiumCard></PremiumCard>
             <SuccessCounter></SuccessCounter>
             <Success></Success>
             

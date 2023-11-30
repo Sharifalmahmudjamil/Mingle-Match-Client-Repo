@@ -24,6 +24,7 @@ import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import SuccessStory from "../Pages/DashBoard/SuccessStory/SuccessStory";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import EditBioData from "../Pages/EditBioData/EditBioData";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
   export const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ import EditBioData from "../Pages/EditBioData/EditBioData";
         {
             path: 'signUp',
             element:<SignUp></SignUp>
+        },
+        {
+            path: 'contact',
+            element:<ContactUs></ContactUs>
         },
       ]
     },
