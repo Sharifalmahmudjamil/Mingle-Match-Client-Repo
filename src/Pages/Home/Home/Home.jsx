@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet-async";
 import PremiumCard from "../../PremiumCard/PremiumCard";
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
@@ -10,6 +11,9 @@ import Success from "../Success/Success";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Mingle Match || Home</title>
+            </Helmet>
             
             <Navbar></Navbar>
             <Banner></Banner>

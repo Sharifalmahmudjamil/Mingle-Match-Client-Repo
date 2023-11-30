@@ -7,6 +7,8 @@ import Navbar from "../Shared/Navbar/Navbar";
 import { Link, useLoaderData } from "react-router-dom";
 
 import './Biodatas.css'
+import Footer from "../Shared/Footer/Footer";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -83,6 +85,9 @@ const handleNextPage =() =>{
       
     return (
         <div>
+            <Helmet>
+                <title>Mingle Match || BioDatas</title>
+            </Helmet>
           <Navbar></Navbar>
           <div className="flex mt-5">
              {/* left side Nav */}
@@ -151,6 +156,7 @@ const handleNextPage =() =>{
                     <option value="50">50</option>
                 </select>
           </div>
+          <Footer></Footer>
         </div>
     );
 };

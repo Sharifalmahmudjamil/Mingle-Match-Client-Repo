@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Helmet } from "react-helmet-async";
 import Footer from "../Shared/Footer/Footer";
 import Navbar from "../Shared/Navbar/Navbar";
 
@@ -6,6 +7,9 @@ import Navbar from "../Shared/Navbar/Navbar";
 const AboutUs = () => {
     return (
         <div>
+              <Helmet>
+                <title>Mingle Match || About US</title>
+            </Helmet>
             <Navbar></Navbar>
             <h1 className="text-5xl font-medium text-center mt-5">About Us</h1>
             <div className="lg:flex mt-5">

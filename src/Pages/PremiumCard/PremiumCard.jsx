@@ -16,7 +16,8 @@ const PremiumCard = () => {
     const [data,setData]=useState(allPremium.slice(0,6))
     return (
         <div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <h1 className="text-4xl text-center font-medium">Featured Profiles</h1>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
 
           
             {

@@ -2,10 +2,15 @@ import Navbar from "../Shared/Navbar/Navbar";
 import { BsGlobe } from "react-icons/bs";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Footer from "../Shared/Footer/Footer";
+import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
     return (
         <div>
+              <Helmet>
+                <title>Mingle Match || Contact US</title>
+            </Helmet>
             <Navbar></Navbar>
 
             <div style={{backgroundImage: 'url(https://i.ibb.co/nRJXft0/3148701-452097-PFEJ72-226.jpg)'}} className="card lg:card-side shadow-xl ">
@@ -55,6 +60,7 @@ const ContactUs = () => {
                    
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

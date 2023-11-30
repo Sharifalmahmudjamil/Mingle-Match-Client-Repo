@@ -25,14 +25,14 @@ const Navbar = () => {
             <li className="lg:text-black "><NavLink to="/contact"
                 className={({ isActive }) => isActive ? 'btn btn-outline btn-sm' : ' btn  bg-pink-500 btn-sm'}
             >Contact US</NavLink></li>
-            <li className="lg:text-black "><NavLink to="/dashboard"
-                className={({ isActive }) => isActive ? 'btn btn-outline btn-sm' : ' btn bg-pink-500 btn-sm'}
-            >DashBoard</NavLink></li>
+          
 
 
             {
                 user ? <>
-
+                      <li className="lg:text-black "><NavLink to="/dashboard"
+                className={({ isActive }) => isActive ? 'btn btn-outline btn-sm' : ' btn bg-pink-500 btn-sm'}
+            >DashBoard</NavLink></li>
                     <button onClick={handleLogOut} className="btn btn-sm btn-outline bg-pink-500">LogOut</button>
                 </> :
                     <>

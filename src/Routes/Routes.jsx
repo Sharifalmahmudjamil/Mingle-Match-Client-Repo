@@ -72,7 +72,7 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
     },
     {
       path:'dashboard',
-      element:<DashBoard></DashBoard>,
+      element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
       children:[
         {
           path:'editBioData',

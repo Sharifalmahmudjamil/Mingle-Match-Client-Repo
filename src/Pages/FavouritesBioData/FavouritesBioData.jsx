@@ -61,7 +61,8 @@ const FavouritesBioData = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto">
+            <h1 className="text-3xl text-center font-medium">My Favourites BioData: {favourites.length}</h1>
+            <div className="overflow-x-auto mt-5">
                 <table className="table">
                     {/* head */}
                     <thead>

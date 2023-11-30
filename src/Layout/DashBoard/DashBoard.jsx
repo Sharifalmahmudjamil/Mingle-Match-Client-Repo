@@ -6,15 +6,27 @@ import { GiBigDiamondRing } from "react-icons/gi";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { SiStorybook } from "react-icons/si";
 import useAdmin from "../../Hooks/useAdmin";
+import { Helmet } from "react-helmet-async";
+import useAuth from "../../Hooks/useAuth";
 
 
 
 
 const DashBoard = () => {
+    const {  logOut } = useAuth();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
     
     const [isAdmin] = useAdmin();
     return (
         <div className="flex">
+              <Helmet>
+                <title>Mingle Match || DashBoard</title>
+            </Helmet>
             {/* dashboard sidebar */}
             <div className="w-64 min-h-screen  bg-pink-500">
                 
@@ -50,12 +62,12 @@ const DashBoard = () => {
                     Success Story</NavLink>
                     
                     </li>
-                    <Link to='/login'>
-                    <button className="btn btn-outline w-full btn-sm mt-5">Logout</button></Link>
+                    <Link to='/'>
+                    <button onClick={handleLogOut} className="btn btn-outline w-full btn-sm mt-5">Logout</button></Link>
                 </>
                 :
                 <>
-                
+                    
                   <li>
                     <NavLink to='/dashboard/editBioData'>
                     <FaEdit></FaEdit>
@@ -86,8 +98,8 @@ const DashBoard = () => {
                     Got Married</NavLink>
                    
                     </li>
-                    <Link to='/login'>
-                    <button className="btn btn-outline w-full btn-sm mt-5">Logout</button></Link>
+                    <Link to='/'>
+                    <button onClick={handleLogOut}  className="btn btn-outline w-full btn-sm mt-5">Logout</button></Link>
                 </>
               }
                     {/* shared nav link */}
@@ -98,7 +110,9 @@ const DashBoard = () => {
                             Home</NavLink>
                     </li>
             </ul>
+            
             </div>
+           
            
             {/* dashboard content */}
             <div className="flex-1">
