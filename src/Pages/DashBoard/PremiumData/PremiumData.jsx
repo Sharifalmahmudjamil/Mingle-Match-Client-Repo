@@ -35,7 +35,7 @@ const PremiumData = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead >
                         <tr>
                             <th></th>
                             <th>Name</th>

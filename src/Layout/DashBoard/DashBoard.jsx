@@ -51,7 +51,7 @@ const DashBoard = () => {
                     Approved Premium</NavLink>
                     </li>
                 <li>
-                    <NavLink to='/dashboard/contact'>
+                    <NavLink to='/dashboard/approvedContact'>
                     <BiSolidContact></BiSolidContact>
                     Approved Contact Request</NavLink>
                     

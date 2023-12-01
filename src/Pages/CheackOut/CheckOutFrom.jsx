@@ -36,6 +36,7 @@ const CheckOutFrom = ({allData,AllData}) => {
         const Id=form.id.value;
         const selfId=form.selfId.value;
         const selfEmail=form.selfEmail.value
+  
         
         const data={Id,selfId,selfEmail}
         console.log(data);
@@ -87,7 +88,7 @@ const CheckOutFrom = ({allData,AllData}) => {
                 price:totalPrice,
                 transactionId:paymentIntent.id,
                 date:new Date(),
-                status:'Pending',
+                status:'false',
                 UserData:data
             }
            const res= await axiosSecure.post('/payments',payment)

@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useState } from "react";
 
 
+
 const PremiumCard = () => {
     const axiosSecure = useAxiosSecure();
     const { data: allPremium = [], } = useQuery({
@@ -33,6 +34,8 @@ const PremiumCard = () => {
                             <p className="text-lg font-medium">Permanent Division: {premium.division}</p>
                             <p className="text-lg font-medium">Age: {premium.age}</p>
                             <p className="text-lg font-medium">Occupation: {premium.occupation}</p>
+
+                           
                            
                         </div>
                         

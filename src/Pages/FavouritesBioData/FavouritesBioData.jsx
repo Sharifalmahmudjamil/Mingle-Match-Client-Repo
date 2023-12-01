@@ -65,7 +65,7 @@ const FavouritesBioData = () => {
             <div className="overflow-x-auto mt-5">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className="bg-slate-500 text-base text-white">
                         <tr>
                             <th></th>
                             <th> Name</th>
@@ -76,7 +76,7 @@ const FavouritesBioData = () => {
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-rose-100">
                         {/* row 1 */}
                         
                         {

@@ -52,7 +52,7 @@ const ContactRequest = () => {
            <div className="overflow-x-auto mt-5">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className="bg-slate-500 text-base text-white">
                         <tr>
                             <th></th>
                            
@@ -65,7 +65,7 @@ const ContactRequest = () => {
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="bg-rose-100">
                         {/* row 1 */}
                         
                         {
@@ -78,7 +78,7 @@ const ContactRequest = () => {
                                     <td>{payment.UserData?.selfEmail}</td>
                                     <td>{payment.date}</td>
                                     <td>{payment.transactionId}</td>
-                                    <td>{payment.status}</td>
+                                    <td>{payment.role}</td>
                                     
                                     <td> <button
                                         onClick={() => handleDeleteUser(payment)}

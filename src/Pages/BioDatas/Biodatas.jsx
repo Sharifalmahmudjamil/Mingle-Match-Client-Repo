@@ -13,9 +13,6 @@ import { Helmet } from "react-helmet-async";
 
 
 
-
-
-
 const Biodatas = () => {
   const [itemsPerPage,setItemsPerPage]=useState(6);
   const [currentPage,setCurrentPage]= useState(0);
@@ -89,14 +86,14 @@ const handleNextPage =() =>{
                 <title>Mingle Match || BioDatas</title>
             </Helmet>
           <Navbar></Navbar>
-          <div className="flex mt-5">
+          <div className=" mt-5">
              {/* left side Nav */}
-               <div className="w-52 h-72 rounded-xl bg-pink-400 ">
+               <div className="w-full rounded-xl bg-pink-400 ">
                     <h1 className="text-xl text-center">Filter Option</h1>
                     <div className="mt-8">
-                    <label className="ml-3">
+                    <label className=" text-xl">
         Select Gender:
-        <select value={selectedGender} onChange={handleGenderChange}>
+        <select className="ml-3" value={selectedGender} onChange={handleGenderChange}>
           <option value="">All</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
@@ -104,13 +101,16 @@ const handleNextPage =() =>{
       </label>
                     </div>
                     <div className=" mt-5">
-            <input onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Search By Division" className="input input-bordered input-error w-full" />
+                   
+            <input onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Search By Division" className="input input-bordered input-error w-full" 
+             />
+            
             </div>
       
                </div>
                {/* right side nav */}
                <div className="flex-1">
-               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+               <div className="grid grid-cols-1 lg:grid-cols-3 mt-5 gap-5">
            {
             filteredBioData.filter((BioData)=>{
               return search.toLowerCase() === ''?BioData:BioData.PresentDivision.toLowerCase().includes(search)

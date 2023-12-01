@@ -25,6 +25,7 @@ import SuccessStory from "../Pages/DashBoard/SuccessStory/SuccessStory";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import EditBioData from "../Pages/EditBioData/EditBioData";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import ApprovedContact from "../Pages/ApprovedContact/ApprovedContact";
 
   export const router = createBrowserRouter([
     {
@@ -123,6 +124,10 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
           path:'story',
           element:<AdminRoute><SuccessStory></SuccessStory></AdminRoute>,
           loader:()=>fetch("http://localhost:5000/success")
+        },
+        {
+          path:'approvedContact',
+          element:<AdminRoute><ApprovedContact></ApprovedContact></AdminRoute>
         }
       ]
     }
