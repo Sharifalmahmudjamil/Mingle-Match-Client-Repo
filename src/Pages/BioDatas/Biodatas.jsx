@@ -56,7 +56,7 @@ const handleNextPage =() =>{
     const [selectedGender, setSelectedGender] = useState('');
 
     useEffect(() => {
-      fetch(`http://localhost:5000/data?page=${currentPage}&size=${itemsPerPage}`)
+      fetch(`https://mingle-match-server.vercel.app/data?page=${currentPage}&size=${itemsPerPage}`)
           .then(res => res.json())
           .then(data => setBioDatas(data))
     }, [currentPage,itemsPerPage]);

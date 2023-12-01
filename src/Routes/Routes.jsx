@@ -26,11 +26,13 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import EditBioData from "../Pages/EditBioData/EditBioData";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import ApprovedContact from "../Pages/ApprovedContact/ApprovedContact";
+import ErrorPage from "../Pages/Errorpage/Errorpage";
 
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path: '/',
@@ -39,7 +41,7 @@ import ApprovedContact from "../Pages/ApprovedContact/ApprovedContact";
         {
             path: 'bioDatas',
             element:<Biodatas></Biodatas>,
-            loader:()=>fetch('http://localhost:5000/totalDataCount')
+            loader:()=>fetch('https://mingle-match-server.vercel.app/totalDataCount')
         },
         {
             path: 'about',
@@ -48,12 +50,12 @@ import ApprovedContact from "../Pages/ApprovedContact/ApprovedContact";
         {
             path: 'bioDetails/:id',
             element:<PrivateRoute><BioDetails></BioDetails></PrivateRoute>,
-           loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+           loader:({params})=>fetch(`https://mingle-match-server.vercel.app/data/${params.id}`)
         },
         {
             path: 'checkOut/:id',
             element:<CheckOut></CheckOut>,
-            loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+            loader:({params})=>fetch(`https://mingle-match-server.vercel.app/data/${params.id}`)
           
         },
        
@@ -88,7 +90,7 @@ import ApprovedContact from "../Pages/ApprovedContact/ApprovedContact";
         {
           path:'update/:id',
           element:<EditBioData></EditBioData>,
-          loader:({params})=>fetch(`http://localhost:5000/data/${params.id}`)
+          loader:({params})=>fetch(`https://mingle-match-server.vercel.app/data/${params.id}`)
 
         },
         {
@@ -123,7 +125,7 @@ import ApprovedContact from "../Pages/ApprovedContact/ApprovedContact";
         {
           path:'story',
           element:<AdminRoute><SuccessStory></SuccessStory></AdminRoute>,
-          loader:()=>fetch("http://localhost:5000/success")
+          loader:()=>fetch("https://mingle-match-server.vercel.app/success")
         },
         {
           path:'approvedContact',
